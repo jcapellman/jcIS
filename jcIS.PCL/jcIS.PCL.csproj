@@ -39,7 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="NOpenCL">
-      <HintPath>..\..\NOpenCL\NOpenCL\bin\Debug\NOpenCL.dll</HintPath>
+      <HintPath>..\ExtermalBin\NOpenCL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
