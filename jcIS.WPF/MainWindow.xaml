@@ -6,15 +6,24 @@
         xmlns:local="clr-namespace:jcIS.WPF"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:controls1="clr-namespace:jcIS.WPF.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <ListView x:Name="lvPlatforms">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        
     </Grid>
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="fSettings" Header="settings" Position="Right" Width="200">
+                <controls1:SettingsControl />
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="settings" Click="btnSettings_OnClick" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
 </controls:MetroWindow>

@@ -40,7 +40,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="NOpenCL">
-      <HintPath>..\..\NOpenCL\NOpenCL\bin\Debug\NOpenCL.dll</HintPath>
+      <HintPath>..\ExtermalBin\NOpenCL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
