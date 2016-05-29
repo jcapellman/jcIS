@@ -20,8 +20,8 @@ namespace jcIS.WPF.Controls {
 
         private List<jcISDevice> selectedDevices => lstBxDevices.SelectedItems.Cast<jcISDevice>().ToList();
 
-        private async void BtnSave_OnClick(object sender, RoutedEventArgs e) {
-            var result = await viewModel.Save(selectedDevices);
+        private void BtnSave_OnClick(object sender, RoutedEventArgs e) {
+            var result = viewModel.Save(selectedDevices);
 
             if (result) {
                 MessageBox.Show("Settings Saved");

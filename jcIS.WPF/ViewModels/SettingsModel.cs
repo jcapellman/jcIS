@@ -2,13 +2,16 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 
 using jcIS.WPF.Transports;
+using jcIS.WPF.Helpers;
+
 using NOpenCL;
 
 namespace jcIS.WPF.ViewModels {
     public class SettingsModel : INotifyPropertyChanged {
+        private Settings _settings;
+
         private List<jcISPlatform> _platforms;
 
         public List<jcISPlatform> Platforms { get {  return _platforms;} set { _platforms = value; OnPropertyChanged(); } }
@@ -21,10 +24,15 @@ namespace jcIS.WPF.ViewModels {
 
         public List<jcISDevice> Devices {  get { return _devices; } set { _devices = value;  OnPropertyChanged(); } }
 
-        public async Task<bool> Save(List<jcISDevice> selectedDevices) {
-
+        public bool Save(List<jcISDevice> selectedDevices) {
+            _settings.SetValue<string>(Common.SettingsOptions.SELECTED_PLATFORM, SelectedPlatform.NOCLPlatform.Name);
+            _settings.SetValue<string>(Common.SettingsOptions.SELECTED_DEVICES, string.Join(",", selectedDevices.Select(a => a.NOCLDevice.Name).ToList()));
 
             return true;
+        }
+
+        public SettingsModel() {
+            _settings = new Settings();
         }
 
         public void LoadSettings() {
