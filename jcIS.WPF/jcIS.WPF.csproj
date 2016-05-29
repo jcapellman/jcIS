@@ -69,6 +69,9 @@
     <Compile Include="Controls\SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Transports\jcISDevice.cs" />
+    <Compile Include="Transports\jcISPlatform.cs" />
     <Compile Include="ViewModels\MainWindowModel.cs" />
     <Compile Include="ViewModels\SettingsModel.cs" />
     <Page Include="Controls\SettingsControl.xaml">

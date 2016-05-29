@@ -2,29 +2,33 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
+using jcIS.WPF.Transports;
 using NOpenCL;
 
 namespace jcIS.WPF.ViewModels {
     public class SettingsModel : INotifyPropertyChanged {
-        private List<Platform> _platforms;
+        private List<jcISPlatform> _platforms;
 
-        public List<Platform> Platforms { get {  return _platforms;} set { _platforms = value; OnPropertyChanged(); } }
+        public List<jcISPlatform> Platforms { get {  return _platforms;} set { _platforms = value; OnPropertyChanged(); } }
 
-        private Platform _selectedPlatform;
+        private jcISPlatform _selectedPlatform;
 
-        public Platform SelectedPlatform { set { _selectedPlatform = value; OnPropertyChanged(); Devices = value.GetDevices().ToList(); } get { return _selectedPlatform; } }
+        public jcISPlatform SelectedPlatform { set { _selectedPlatform = value; OnPropertyChanged(); Devices = value.GetDevices(); } get { return _selectedPlatform; } }
 
-        private List<Device> _devices;
+        private List<jcISDevice> _devices;
 
-        public List<Device> Devices {  get { return _devices; } set { _devices = value;  OnPropertyChanged(); SelectedDevice = value.FirstOrDefault(); } }
+        public List<jcISDevice> Devices {  get { return _devices; } set { _devices = value;  OnPropertyChanged(); } }
 
-        private Device _selectedDevice;
+        public async Task<bool> Save(List<jcISDevice> selectedDevices) {
 
-        public Device SelectedDevice {  get { return _selectedDevice; } set { _selectedDevice = value;  OnPropertyChanged(); } }
+
+            return true;
+        }
 
         public void LoadSettings() {
-            Platforms = Platform.GetPlatforms().ToList();
+            Platforms = Platform.GetPlatforms().ToList().Select(a => new jcISPlatform(a)).ToList();
 
             SelectedPlatform = Platforms.FirstOrDefault();
         }
