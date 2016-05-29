@@ -24,7 +24,7 @@
             <ComboBox Grid.Row="1" HorizontalAlignment="Left" Margin="0,5,0,0" Width="200" SelectedItem="{Binding SelectedPlatform, Mode=TwoWay}" ItemsSource="{Binding Platforms}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding NOCLPlatform.Name}" />
+                        <TextBlock Text="{Binding Name}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -46,7 +46,7 @@
                 </ListBox.ItemContainerStyle>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding NOCLDevice.Name}" />
+                        <TextBlock Text="{Binding Name}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

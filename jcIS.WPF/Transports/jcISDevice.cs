@@ -2,7 +2,9 @@
 
 namespace jcIS.WPF.Transports {
     public class jcISDevice {
-        public Device NOCLDevice { get; set; }
+        private Device NOCLDevice { get; set; }
+
+        public string Name { get { return NOCLDevice.Name; } }
 
         public bool IsSelected { get; set; }
 
