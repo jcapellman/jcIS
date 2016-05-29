@@ -1,3 +1,7 @@
 .vs/
 bin/
 obj/
+ipch/
+x64/
+Debug/
+VC.*

@@ -8,7 +8,7 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:controls1="clr-namespace:jcIS.WPF.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="jcIS" Height="350" Width="525">
     <Grid>
         
     </Grid>

@@ -1,20 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using NOpenCL;
-
 namespace jcIS.WPF.Transports {
     public class jcISPlatform {
-        private Platform NOCLPlatform { get; set; }
+        private CL_platform platform { get; set; }
 
-        public List<jcISDevice> GetDevices() => NOCLPlatform.GetDevices().ToList().Select(a => new jcISDevice(a)).ToList();
+        public List<jcISDevice> GetDevices() => new List<jcISDevice>();// platform.GetDevices().Select(a => new jcISDevice(a)).ToList();
         
-        public string Name {  get { return NOCLPlatform.Name; } }
+        public string Name {  get { return platform.Name; } }
 
         public jcISPlatform() { }
 
-        public jcISPlatform(Platform platform) {
-            NOCLPlatform = platform;
+        public jcISPlatform(CL_platform oclPlatform) {
+            platform = oclPlatform;
         }
     }
 }

@@ -6,8 +6,6 @@ using System.Runtime.CompilerServices;
 using jcIS.WPF.Transports;
 using jcIS.WPF.Helpers;
 
-using NOpenCL;
-
 namespace jcIS.WPF.ViewModels {
     public class SettingsModel : INotifyPropertyChanged {
         private Settings _settings;
@@ -36,7 +34,7 @@ namespace jcIS.WPF.ViewModels {
         }
 
         private void LoadPlatform() {
-            Platforms = Platform.GetPlatforms().ToList().Select(a => new jcISPlatform(a)).ToList();
+            //Platforms = CL_platform.GetPlatforms().ToList().Select(a => new jcISPlatform(a)).ToList();
 
             var settingPlatform = _settings.GetValue<string>(Common.SettingsOptions.SELECTED_PLATFORM);
 
