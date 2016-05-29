@@ -8,11 +8,15 @@ using jcIS.WPF.ViewModels;
 
 namespace jcIS.WPF.Controls {
     public partial class SettingsControl : UserControl {
+        public delegate void OnClosingHandler(object sender);
+
+        public event OnClosingHandler OnClosing;
+
         private SettingsModel viewModel => (SettingsModel) DataContext;
 
         public SettingsControl() {
             InitializeComponent();
-
+            
             DataContext = new SettingsModel();
 
             viewModel.LoadSettings();
@@ -23,9 +27,7 @@ namespace jcIS.WPF.Controls {
         private void BtnSave_OnClick(object sender, RoutedEventArgs e) {
             var result = viewModel.Save(selectedDevices);
 
-            if (result) {
-                MessageBox.Show("Settings Saved");
-            }
+            OnClosing(this);
         }
     }
 }

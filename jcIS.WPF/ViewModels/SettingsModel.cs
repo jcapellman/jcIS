@@ -57,8 +57,37 @@ namespace jcIS.WPF.ViewModels {
             SelectedPlatform = selectedPlatform;
         }
 
+        private void LoadDevices() {
+            var devices = SelectedPlatform.GetDevices();
+
+            var settingDevice = _settings.GetValue<string>(Common.SettingsOptions.SELECTED_DEVICES);
+
+            if (string.IsNullOrEmpty(settingDevice)) {
+                devices[0].IsSelected = true;
+
+                Devices = devices;
+
+                return;
+            }
+
+            foreach (var device in devices) {
+                if (device.Name != settingDevice) {
+                    device.IsSelected = false;
+
+                    continue;
+                }
+
+                device.IsSelected = true;
+                break;
+            }
+
+            Devices = devices;
+        }
+
         public void LoadSettings() {
             LoadPlatform();
+
+            LoadDevices();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

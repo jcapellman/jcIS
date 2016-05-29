@@ -15,5 +15,9 @@ namespace jcIS.WPF {
 
             fSettings.IsOpen = true;
         }
+
+        private void SettingsControl_OnClosing(object sender) {
+            fSettings.IsOpen = false;
+        }
     }
 }

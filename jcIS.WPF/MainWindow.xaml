@@ -16,7 +16,7 @@
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
             <Controls:Flyout x:Name="fSettings" Header="settings" Position="Right" Width="250">
-                <controls1:SettingsControl />
+                <controls1:SettingsControl OnClosing="SettingsControl_OnClosing" />
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
